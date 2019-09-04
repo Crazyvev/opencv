@@ -1,0 +1,15 @@
+在一个目录下面只有文件，没有文件夹，这个时候可以使用os.listdir
+def get_coordintes(path):
+    coords = []
+    dirs = os.listdir(path)
+    for file in dirs:
+        if file.endswith('jpg'):
+            print(file)
+            coords.append(file[0:len(file)-4])
+    return coords
+递归的情况，一个目录下面既有目录也有文件，使用os.walk  (for dirpath,dirnames,filenames in os.walk(path))
+同时获取子文件夹中的文件
+for _, _, files in os.walk(path_name):
+for file in files:
+    if file.endswith('.png'):
+        coords.append(file)
